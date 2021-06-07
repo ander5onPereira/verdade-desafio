@@ -1,0 +1,36 @@
+{
+  "name": "verdadeDesafio",
+  "displayName": "verdadeDesafio",
+  "expo": {
+    "name": "verdadeDesafio",
+    "slug": "verdadeDesafio",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#5D3520"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.arpdev.verdadedesafio",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "br.com.arpdev.verdadedesafio",
+      "versionCode": 1,
+      "permissions": []
+    }
+  }
+}
