@@ -22,34 +22,15 @@ export function Plays2({ graus, data, isResult, angulo, setName }) {
         isResult ? { opacity: 0.3 } : { opacity: 1 },
       ]}
     >
-      <Text
-        style={{
-          position: "absolute",
-          fontSize: 25,
-          left: 50,
-        }}
-      >
-        {data[0]}
-      </Text>
+      <Text style={styles.text1p}>{data[0]}</Text>
 
-      <Text
-        style={{
-          position: "absolute",
-          fontSize: 25,
-          right: 50,
-        }}
-      >
-        {data[1]}
-      </Text>
+      <Text style={styles.text2p}>{data[1]}</Text>
 
       <Image
         source={Garrafa}
         resizeMode="contain"
         style={[
-          {
-            position: "absolute",
-            width: 40,
-          },
+          styles.imageGarrafa,
           {
             transform: [
               {
@@ -69,5 +50,19 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+  },
+  imageGarrafa: {
+    position: "absolute",
+    width: 40,
+  },
+  text2p: {
+    position: "absolute",
+    fontSize: 25,
+    right: 50,
+  },
+  text1p: {
+    position: "absolute",
+    fontSize: 25,
+    left: 50,
   },
 });

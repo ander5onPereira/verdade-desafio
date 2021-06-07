@@ -22,87 +22,28 @@ export function Plays5({ graus, data, isResult, angulo, setName }) {
     <ImageBackground
       source={SobreMesa5p}
       resizeMode="contain"
-      style={[
-        {
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        },
-        isResult ? { opacity: 0.3 } : { opacity: 1 },
-      ]}
+      style={[styles.container, isResult ? { opacity: 0.3 } : { opacity: 1 }]}
     >
-      <Text
-        style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            left: 30,
-            top: 210,
-          },
-          { transform: [{ rotate: "-10deg" }] },
-        ]}
-      >
+      <Text style={[styles.text1p, { transform: [{ rotate: "-10deg" }] }]}>
         {data[0]}
       </Text>
-      <Text
-        style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            top: 70,
-            left: 80,
-          },
-          { transform: [{ rotate: "-40deg" }] },
-        ]}
-      >
+      <Text style={[styles.text2p, { transform: [{ rotate: "-40deg" }] }]}>
         {data[1]}
       </Text>
-      <Text
-        style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            right: 90,
-            top: 70,
-          },
-          { transform: [{ rotate: "40deg" }] },
-        ]}
-      >
+      <Text style={[styles.text3p, { transform: [{ rotate: "40deg" }] }]}>
         {data[2]}
       </Text>
 
-      <Text
-        style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            top: 210,
-            right: 40,
-          },
-          { transform: [{ rotate: "15deg" }] },
-        ]}
-      >
+      <Text style={[styles.text4p, { transform: [{ rotate: "15deg" }] }]}>
         {data[3]}
       </Text>
-      <Text
-        style={{
-          position: "absolute",
-          fontSize: 25,
-          top: 300,
-        }}
-      >
-        {data[4]}
-      </Text>
+      <Text style={styles.text5p}>{data[4]}</Text>
 
       <Image
         source={Garrafa}
         resizeMode="contain"
         style={[
-          {
-            position: "absolute",
-            width: 40,
-          },
+          styles.imageGarrafa,
           {
             transform: [
               {
@@ -117,4 +58,44 @@ export function Plays5({ graus, data, isResult, angulo, setName }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text1p: {
+    position: "absolute",
+    fontSize: 25,
+    left: 30,
+    top: 210,
+  },
+  text2p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 70,
+    left: 80,
+  },
+  text3p: {
+    position: "absolute",
+    fontSize: 25,
+    right: 90,
+    top: 70,
+  },
+  text4p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 210,
+    right: 40,
+  },
+  text5p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 300,
+  },
+  imageGarrafa: {
+    position: "absolute",
+    width: 40,
+  },
+});

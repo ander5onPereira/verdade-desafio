@@ -37,19 +37,14 @@ export function Acao({ isResult = true, route }) {
   }
 
   return (
-    <ImageBackground source={Background} style={{ flex: 1 }}>
+    <ImageBackground source={Background} style={styles.imageBackgroud}>
       <View
         style={[
-          { flex: 1 },
+          styles.imageBackgroud,
           isResult && { backgroundColor: "rgba(0, 0, 0, 0.8)" },
         ]}
       >
-        <View
-          style={{
-            height: "12%",
-            width: "100%",
-          }}
-        >
+        <View style={styles.containerHeader}>
           <Header />
         </View>
 
@@ -59,7 +54,7 @@ export function Acao({ isResult = true, route }) {
           <Verdade loading={loading} idPost={idPost} captaPost={captaPost} />
         )}
 
-        <View style={{ bottom: 60, width: screenWidth * 0.7 }}>
+        <View style={styles.containerButton}>
           <ButtonGreen text="Próximo" onPress={handleProximo} />
         </View>
       </View>
@@ -67,4 +62,16 @@ export function Acao({ isResult = true, route }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  imageBackgroud: {
+    flex: 1,
+  },
+  containerHeader: {
+    height: "12%",
+    width: "100%",
+  },
+  containerButton: {
+    bottom: 60,
+    width: screenWidth * 0.7,
+  },
+});

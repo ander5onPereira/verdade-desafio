@@ -1,15 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
+  ImageBackground,
+  Keyboard,
+  SafeAreaView,
   StyleSheet,
   Text,
-  View,
-  ImageBackground,
-  SafeAreaView,
-  Platform,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard,
+  View,
 } from "react-native";
 import ToastAndroid from "react-native-tiny-toast";
 import { ButtonGreen } from "../components/ButtonGreen";
@@ -48,50 +47,27 @@ export function Configuracao() {
     setQtdPlayers(qtdPlayers + 1);
   }
   return (
-    <ImageBackground source={Background} style={{ flex: 1 }}>
+    <ImageBackground source={Background} style={styles.imageBackgroud}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView>
-          <View
-            style={{
-              height: "12%",
-              width: "100%",
-            }}
-          >
+          <View style={styles.containerHeader}>
             <Header isArrow={false} />
           </View>
-          <View style={{ height: "65%", paddingVertical: 40 }}>
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "space-around",
-              }}
-            >
-              <View style={{ width: "90%" }}>
+          <View style={styles.containerInputs}>
+            <View style={styles.containerInput2p}>
+              <View style={styles.input}>
                 <Input text="PLAYER 1" onChangeText={setPlayer1} />
               </View>
             </View>
 
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "space-around",
-              }}
-            >
-              <View style={{ width: "90%" }}>
+            <View style={styles.containerInput}>
+              <View style={styles.input}>
                 <Input text="PLAYER 2" onChangeText={setPlayer2} />
               </View>
             </View>
             {qtdPlayers >= 3 ? (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
-                <View style={{ width: "90%" }}>
+              <View style={styles.containerInput}>
+                <View style={styles.input}>
                   <Input text="PLAYER 3" onChangeText={setPlayer3} />
                 </View>
               </View>
@@ -99,14 +75,8 @@ export function Configuracao() {
               <></>
             )}
             {qtdPlayers >= 4 ? (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
-                <View style={{ width: "90%" }}>
+              <View style={styles.containerInput}>
+                <View style={styles.input}>
                   <Input text="PLAYER 4" onChangeText={setPlayer4} />
                 </View>
               </View>
@@ -114,52 +84,25 @@ export function Configuracao() {
               <></>
             )}
             {qtdPlayers >= 5 ? (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
-                <View style={{ width: "90%" }}>
+              <View style={styles.containerInput}>
+                <View style={styles.input}>
                   <Input text="PLAYER 5" onChangeText={setPlayer5} />
                 </View>
               </View>
             ) : (
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
-                <View style={{ width: "90%" }}>
+              <View style={styles.containerButtunAdd}>
+                <View style={styles.input}>
                   <TouchableOpacity
                     onPress={addPlayer}
-                    style={{
-                      backgroundColor: "rgba(255,255,255,0.8)",
-                      borderRadius: 10,
-                      height: 56,
-                      width: "100%",
-                    }}
+                    style={styles.buttonAdd}
                   >
-                    <Text
-                      style={{
-                        flex: 1,
-                        textAlign: "center",
-                        justifyContent: "center",
-                        fontSize: 36,
-                        color: "rgba(0,0,0,0.4)",
-                      }}
-                    >
-                      +
-                    </Text>
+                    <Text style={styles.textButtonAdd}>+</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             )}
           </View>
-          <View style={{ width: "75%", paddingVertical: 10, height: "20%" }}>
+          <View style={styles.containerButton}>
             <ButtonGreen text="Próximo" onPress={handlerInicio} />
           </View>
         </SafeAreaView>
@@ -168,4 +111,50 @@ export function Configuracao() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  imageBackgroud: {
+    flex: 1,
+  },
+  containerHeader: {
+    height: "12%",
+    width: "100%",
+  },
+  containerInputs: {
+    height: "65%",
+    paddingVertical: 40,
+  },
+  containerInput2p: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  containerInput: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  input: { width: "90%" },
+  containerButton: {
+    width: "75%",
+    paddingVertical: 10,
+    height: "20%",
+  },
+  containerButtunAdd: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  buttonAdd: {
+    backgroundColor: "rgba(255,255,255,0.8)",
+    borderRadius: 10,
+    height: 56,
+    width: "100%",
+  },
+  textButtonAdd: {
+    flex: 1,
+    textAlign: "center",
+    justifyContent: "center",
+    fontSize: 36,
+    color: "rgba(0,0,0,0.4)",
+  },
+});

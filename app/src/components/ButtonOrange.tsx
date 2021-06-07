@@ -18,27 +18,23 @@ export function ButtonOrange({ text, isResult, ...rest }: ItButton) {
       <ImageBackground
         source={backButton}
         resizeMode="stretch"
-        style={[
-          {
-            height: 70,
-            alignItems: "center",
-            justifyContent: "center",
-          },
-          isResult && { display: "none" },
-        ]}
+        style={[styles.imageButton, isResult && { display: "none" }]}
       >
-        <Text
-          style={{
-            color: "#fff",
-            fontSize: 35,
-            fontWeight: "bold",
-          }}
-        >
-          {text}
-        </Text>
+        <Text style={styles.textButton}>{text}</Text>
       </ImageBackground>
     </TouchableOpacity>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  imageButton: {
+    height: 70,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textButton: {
+    color: "#fff",
+    fontSize: 35,
+    fontWeight: "bold",
+  },
+});

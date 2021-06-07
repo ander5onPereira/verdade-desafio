@@ -25,24 +25,11 @@ export function Plays3({ graus, data, isResult, angulo, setName }) {
     <ImageBackground
       source={SobreMesa3p}
       resizeMode="contain"
-      style={[
-        {
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        },
-        isResult ? { opacity: 0.3 } : { opacity: 1 },
-      ]}
+      style={[styles.container, isResult ? { opacity: 0.3 } : { opacity: 1 }]}
     >
       <Text
         style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            top: 120,
-            left: 60,
-          },
+          styles.text1p,
           {
             transform: [
               {
@@ -56,12 +43,8 @@ export function Plays3({ graus, data, isResult, angulo, setName }) {
       </Text>
       <Text
         style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            right: 70,
-            top: 120,
-          },
+          styles.text2p,
+
           {
             transform: [
               {
@@ -74,24 +57,14 @@ export function Plays3({ graus, data, isResult, angulo, setName }) {
         {data[1]}
       </Text>
 
-      <Text
-        style={{
-          position: "absolute",
-          fontSize: 25,
-          top: 290,
-        }}
-      >
-        {data[2]}
-      </Text>
+      <Text style={styles.text3p}>{data[2]}</Text>
 
       <Image
         source={Garrafa}
         resizeMode="contain"
         style={[
-          {
-            position: "absolute",
-            width: 40,
-          },
+          ,
+          styles.imageGarrafa,
           {
             transform: [
               {
@@ -105,4 +78,32 @@ export function Plays3({ graus, data, isResult, angulo, setName }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text1p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 120,
+    left: 60,
+  },
+  text2p: {
+    position: "absolute",
+    fontSize: 25,
+    right: 70,
+    top: 120,
+  },
+  text3p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 290,
+  },
+  imageGarrafa: {
+    position: "absolute",
+    width: 40,
+  },
+});

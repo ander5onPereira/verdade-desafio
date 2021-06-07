@@ -20,67 +20,23 @@ export function Plays4({ graus, data, isResult, angulo, setName }) {
     <ImageBackground
       source={SobreMesa4p}
       resizeMode="contain"
-      style={[
-        {
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        },
-        isResult ? { opacity: 0.3 } : { opacity: 1 },
-      ]}
+      style={[styles.container, isResult ? { opacity: 0.3 } : { opacity: 1 }]}
     >
-      <Text
-        style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            left: 10,
-          },
-          { transform: [{ rotate: "-90deg" }] },
-        ]}
-      >
+      <Text style={[styles.text1p, { transform: [{ rotate: "-90deg" }] }]}>
         {data[0]}
       </Text>
-      <Text
-        style={[
-          {
-            position: "absolute",
-            fontSize: 25,
-            right: 10,
-          },
-          { transform: [{ rotate: "90deg" }] },
-        ]}
-      >
+      <Text style={styles.text2p}>{data[1]}</Text>
+      <Text style={[styles.text3p, { transform: [{ rotate: "90deg" }] }]}>
         {data[2]}
       </Text>
-      <Text
-        style={{
-          position: "absolute",
-          fontSize: 25,
-          top: 40,
-        }}
-      >
-        {data[1]}
-      </Text>
-      <Text
-        style={{
-          position: "absolute",
-          fontSize: 25,
-          top: 300,
-        }}
-      >
-        {data[3]}
-      </Text>
+
+      <Text style={styles.text4p}>{data[3]}</Text>
 
       <Image
         source={Garrafa}
         resizeMode="contain"
         style={[
-          {
-            position: "absolute",
-            width: 40,
-          },
+          styles.imageGarrafa,
           {
             transform: [
               {
@@ -94,4 +50,35 @@ export function Plays4({ graus, data, isResult, angulo, setName }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text1p: {
+    position: "absolute",
+    fontSize: 25,
+    left: 10,
+  },
+  text2p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 40,
+  },
+  text3p: {
+    position: "absolute",
+    fontSize: 25,
+    right: 10,
+  },
+  text4p: {
+    position: "absolute",
+    fontSize: 25,
+    top: 300,
+  },
+  imageGarrafa: {
+    position: "absolute",
+    width: 40,
+  },
+});

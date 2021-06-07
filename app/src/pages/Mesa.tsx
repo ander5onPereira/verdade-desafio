@@ -106,29 +106,22 @@ export function Mesa({ route }: any) {
   function acao() {
     if (isResult) {
       return (
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            position: "absolute",
-          }}
-        >
+        <View style={styles.containerOption}>
           <View>
-            <Text style={{ color: "#fff", fontSize: 35, fontWeight: "bold" }}>
+            <Text style={styles.title}>
               {name}
               {"\n"}
             </Text>
           </View>
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={{ width: screenWidth * 0.45, marginHorizontal: 5 }}>
+          <View style={styles.containerButtons}>
+            <View style={styles.button}>
               <ButtonOrange
                 text="Verdade"
                 isResult={!isResult}
                 onPress={handleVerdade}
               />
             </View>
-            <View style={{ width: screenWidth * 0.45, marginHorizontal: 5 }}>
+            <View style={styles.button}>
               <ButtonGreen text="Desafio" onPress={handleDesafio} />
             </View>
           </View>
@@ -137,42 +130,22 @@ export function Mesa({ route }: any) {
     }
   }
   return (
-    <ImageBackground source={Background} style={{ flex: 1 }}>
+    <ImageBackground source={Background} style={styles.imageBackgroud}>
       <View
         style={[
-          { flex: 1 },
+          styles.imageBackgroud,
           isResult && { backgroundColor: "rgba(0, 0, 0, 0.8)" },
         ]}
       >
-        <View
-          style={{
-            height: "12%",
-            width: "100%",
-          }}
-        >
+        <View style={styles.containerHeader}>
           <Header isArrow={isResult} />
         </View>
 
-        <View
-          style={{
-            height: "65%",
-            paddingVertical: 40,
-            marginHorizontal: 10,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <View style={styles.containerSobreMesa}>
           {rederElemento(isResult)}
           {acao()}
         </View>
-        <View
-          style={{
-            width: "100%",
-            paddingVertical: 10,
-            height: "20%",
-            paddingLeft: screenWidth * 0.4,
-          }}
-        >
+        <View style={styles.constainerButton}>
           <ButtonOrange
             text="Rodar"
             isResult={isResult}
@@ -184,4 +157,32 @@ export function Mesa({ route }: any) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  imageBackgroud: { flex: 1 },
+  containerHeader: {
+    height: "12%",
+    width: "100%",
+  },
+  containerSobreMesa: {
+    height: "65%",
+    paddingVertical: 40,
+    marginHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  constainerButton: {
+    width: "100%",
+    paddingVertical: 10,
+    height: "20%",
+    paddingLeft: screenWidth * 0.4,
+  },
+  containerOption: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+  },
+  title: { color: "#fff", fontSize: 35, fontWeight: "bold" },
+  containerButtons: { flex: 1, flexDirection: "row" },
+  button: { width: screenWidth * 0.45, marginHorizontal: 5 },
+});
